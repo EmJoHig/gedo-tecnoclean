@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>PADRE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/LineIcons.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                <img src="/images/logoinicio.png" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="/">INICIO</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/clientes">CLIENTES</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/articulos/administracionArticulos">ARTICULOS</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="home" class="header-hero bg_cover" style="background-image: url(/images/bannerfondo.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-hero-image text-center wow fadeIn" data-wow-duration="1.3s"
+                            data-wow-delay="1.4s">
+                            <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s"
+                                style="padding-top:70px"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="particles-1" class="particles"></div>
+        </div>
+    </header>
+
+
+
+    <div class="container mt-5">
+        <a class="btn btn-success" href="/recibos/alta-recibos">NUEVO RECIBO</a>
+        <h2 class="mb-4">Lista de Recibos</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Número de Referencia</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">IVA</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each recibosList}}
+                    <tr>
+                        <td>{{numeroref}}</td>
+                        <td>{{descripcion}}</td>
+                        <td>{{formatDate fecha}}</td>
+                        <td>{{iva}} %</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <footer id="footer" class="footer-area pt-120">
+
+        <div id="particles-2"></div>
+    </footer>
+
+
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/ajax-contact.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/scrolling-nav.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/particles.min.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

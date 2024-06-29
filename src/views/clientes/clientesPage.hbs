@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>CLIENTES</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/LineIcons.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                <img src="/images/logoinicio.png" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="/articulos/administracionArticulos">ARTICULOS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/clientes">CLIENTES</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="header-hero bg_cover" style="background-image: url(/images/bannerfondo.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-hero-image text-center wow fadeIn" data-wow-duration="1.3s"
+                            data-wow-delay="1.4s">
+                            <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s"
+                                style="padding-top:70px"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="particles-1" class="particles"></div>
+        </div>
+    </header>
+
+
+    <div class="container mt-40">
+        <div class="row pb-25">
+            <div class="col-lg-8">
+                <a class="btn btn-success page-scroll mr-10" href="/clientes/alta-cliente">NUEVO CLIENTE</a>
+                <a class="btn btn-warning page-scroll ml-2" href="/recibos/alta-recibos">GENERAR DOCUMENTO</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container pb-100 pt-50">
+        <div class="col-md-8 mx-auto">
+            <div class="">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">CUIT</th>
+                            <th scope="col">Domicilio</th>
+                            <th scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each clientes}}
+                        <tr>
+                            <td>{{nombre}}</td>
+                            <td>{{cuit}}</td>
+                            <td>{{domicilio}}</td>
+                            <td>
+                                <a href="/clientes/editarCliente/{{_id}}"
+                                    style="color: black; margin-right:4px;  margin-left:4px">
+                                    <i class="lni-pencil"></i>
+                                </a>
+                                <a onclick="prueba('{{_id}}')" style="color: black">
+                                    <i class="lni-cross-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="footer" class="footer-area pt-120">
+        <div id="particles-2"></div>
+    </footer>
+
+
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/ajax-contact.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/scrolling-nav.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/particles.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+        function prueba(idprop) {
+            console.log(idprop)
+            Swal.fire({
+                title: '',
+                text: "Desea eliminar el cliente?",
+                icon: 'warning',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Aceptar',
+                denyButtonText: `Cancelar`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log('aceptar');
+                    fetch(`/clientes/eliminarCliente/${idprop}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        //body: JSON.stringify({ carrito: cart })
+                    })
+                        .then(data => {
+                            console.log("then(data");
+                            console.log(data);
+                            if (data.ok && data.status == 200) {
+                                console.log("data.success)");
+                                console.log(data);
+                                Swal.fire({
+                                    title: 'Deleted!',
+                                    text: data.message,
+                                    icon: 'success'
+                                }).then(() => {
+                                    window.location = '/clientes';
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: data.message,
+                                    icon: 'error'
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'There was an error deleting the client.',
+                                icon: 'error'
+                            });
+                        });
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>

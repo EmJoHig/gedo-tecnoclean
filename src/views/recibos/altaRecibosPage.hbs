@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>PADRE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/LineIcons.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+
+
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                <img src="/images/logoinicio.png" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="/">Inicio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/articulos/administracionArticulos">ARTICULOS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/clientes">CLIENTES</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="home" class="header-hero bg_cover" style="background-image: url(/images/bannerfondo.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-hero-image text-center wow fadeIn" data-wow-duration="1.3s"
+                            data-wow-delay="1.4s">
+                            <h3 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s"
+                                style="padding-top:70px"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="particles-1" class="particles"></div>
+        </div>
+    </header>
+
+
+
+    <div class="container d-flex justify-content-end mt-5">
+        <a class="btn btn-danger" href="/recibos">VOLVER</a>
+        {{!-- <a class="btn btn-warning" href="/recibos/descargarpdfrecibos">GENERAR</a> --}}
+    </div>
+
+    <div class="pb-50">
+        <div class="container">
+            <div class="mx-auto">
+                <div class="card mt-4 text-white">
+                    <div class="card-header text-center">
+                        <h1 class="h4">
+                            GENERAR REMITO - RECIBO
+                        </h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="/recibos/nuevo-recibo" method="POST">
+                            <div class="container">
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <label for="numeroref" style="color: #000;">Número de Referencia</label>
+                                        <input type="text" class="form-control" name="numeroref"
+                                            placeholder="Número de Referencia" required autofocus />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="descripcion" style="color: #000;">Descripción</label>
+                                        <input type="text" class="form-control" name="descripcion"
+                                            placeholder="Descripción" required />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="fecha" style="color: #000;">Fecha</label>
+                                        <input type="date" class="form-control" name="fecha" required />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="iva" style="color: #000;">IVA</label>
+                                        <input type="text" class="form-control" name="iva" placeholder="IVA" required />
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-4">
+                                        <h5 class="h4"> Cliente</h5>
+                                        <select class="form-select form-select-lg" name="cliente" id="cliente" required>
+                                            <option value="" selected disabled>Seleccionar Cliente</option>
+                                            {{#each clientesList}}
+                                            <option value="{{_id}}">{{nombre}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    {{!-- <div class="col-4">
+                                        <h5 class="h4"> Remito</h5>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                                        <h5 class="h4"> Recibo</h5>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div> --}}
+                                    <div class="col-4">
+                                        <div class="form-check form-check-inline">
+                                            <h5 class="h4 mt-3"> Remito</h5>
+                                            <input class="form-check-input ml-3" type="checkbox" id="idCheckRemito"
+                                                style="font-size: 30px;" name="checkRemito" value="checkRemito">
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <h5 class="h4 mt-3"> Recibo</h5>
+                                            <input class="form-check-input ml-3" type="checkbox" id="idCheckRecibo"
+                                                style="font-size: 30px;" name="checkRecibo" value="checkRecibo">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-4">
+                                    <form>
+                                        <div class="col-6">
+                                            <h5 class="h4">Articulos</h5>
+                                            <select class="selectpicker" data-live-search="true" id="articulo"
+                                                data-width="100%">
+                                                <option value="" selected disabled style="font-size:20px">
+                                                    SELECCIONAR ARTÍCULO</option>
+                                                {{#each articulosList}}
+                                                <option value="{{codigo}}" style="font-size:20px">
+                                                    {{descripcion}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                        <div class="col-4 mt-1">
+                                            <h5 for="cantidad" class="form-label">CANTIDAD</h5>
+                                            <input type="number" class="form-control" id="cantidad">
+                                        </div>
+                                        <div class="col-2" style="margin-top: 35px;">
+                                            <button type="button" class="btn btn-warning" id="guardarBtn">
+                                                AGREGAR ARTICULO
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <div class="col-12">
+                                        {{!-- LISTADO ARTICULOS AÑADIDOS AL RECIBO/REMITO --}}
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Codigo</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Cantidad</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="registroTabla">
+                                                <!-- Registros serán añadidos aquí -->
+                                            </tbody>
+                                        </table>
+
+                                        <!-- Campo oculto para enviar el array de artículos -->
+                                        <input type="hidden" name="arrayArticulosReporte"
+                                            id="idarrayArticulosReporte" />
+                                    </div>
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-success btn-block">
+                                            GENERAR REMITO - RECIBO
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        {{!-- <button type="submit" class="btn btn-secondary btn-block"
+                                            onclick="window.location.reload()">
+                                            LIMPIAR
+                                        </button> --}}
+                                        <a class="btn btn-secondary btn-block" href="/recibos/alta-recibos">LIMPIAR</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- MODAL ARTICULOS --}}
+
+    <!-- Modal -->
+    {{!-- <div class="modal fade" id="articuloModal" tabindex="-1" aria-labelledby="articuloModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="articuloModalLabel">SELECCIONAR ARTÍCULO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="articulo" class="form-label">ARTICULO</label>
+                            <select class="form-select form-select-lg" id="articulo" required>
+                                <option value="" selected disabled>SELECCIONAR ARTÍCULO</option>
+                                {{#each articulosList}}
+                                <option value="{{codigo}}">{{descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cantidad" class="form-label">CANTIDAD</label>
+                            <input type="number" class="form-control" id="cantidad" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" id="guardarBtn"
+                        data-bs-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+
+
+
+
+
+    <footer id="footer" class="footer-area pt-120">
+
+        <div id="particles-2"></div>
+    </footer>
+
+
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/ajax-contact.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/scrolling-nav.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/particles.min.js"></script>
+    <script src="/js/main.js"></script>
+    {{!--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> --}}
+
+    {{!-- select --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+    <script>
+        let arrayArticulosForm = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const saveButton = document.getElementById('guardarBtn');
+            const registroTabla = document.getElementById('registroTabla');
+
+            saveButton.addEventListener('click', () => {
+
+                const articuloSelect = document.getElementById('articulo');
+                const cantidadInput = document.getElementById('cantidad');
+
+                const codArticulo = articuloSelect.options[articuloSelect.selectedIndex].value;
+                const descripcionArticulo = articuloSelect.options[articuloSelect.selectedIndex].text;
+                const cantidad = cantidadInput.value;
+
+                if (articuloSelect.value && cantidad) {
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>${codArticulo}</td>
+                        <td>${descripcionArticulo}</td>
+                        <td>${cantidad} Lts.</td>
+                    `;
+                    registroTabla.appendChild(newRow);
+
+                    // agrego el articulo recien buscado al array arrayArticulosForm para enviarlo junto al form
+                    agregarArticulo(codArticulo, descripcionArticulo, cantidad);
+
+                    // Reset the form fields
+                    articuloSelect.value = '';
+                    cantidadInput.value = '';
+
+                    // Close the modal after saving
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('articuloModal'));
+                    if (modal) {
+                        modal.hide();
+                    }
+
+                    // Verifica si el overlay sigue presente y lo elimina
+                    const overlay = document.querySelector('.modal-backdrop');
+                    if (overlay) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+
+                    // Asegúrate de que el cuerpo del documento no esté bloqueado
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = ''; // o document.body.style.overflow = 'auto';
+
+
+                } else {
+                    alert('Por favor, complete todos los campos.');
+                }
+            });
+        });
+
+        // Función para agregar un artículo
+        function agregarArticulo(codigo, descripcion, cantidad) {
+            arrayArticulosForm.push({ codigo, descripcion, cantidad });
+            const articulosInput = document.getElementById('idarrayArticulosReporte');
+            articulosInput.value = JSON.stringify(arrayArticulosForm);
+        }
+
+
+    </script>
+
+</body>
+
+</html>
