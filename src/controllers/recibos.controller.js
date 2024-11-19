@@ -15,46 +15,54 @@ export const renderReciboForm = async (req, res) => {
 
 export const createNewRecibo = async (req, res) => {
     const { numeroref, descripcion, fecha, iva, cliente, arrayArticulosReporte, checkRemito, checkRecibo } = req.body;
+
     const errors = [];
-    if (!numeroref) {
-        errors.push({ text: "debe ingresar numeroref." });
+    // if (!numeroref) {
+    //     errors.push({ text: "debe ingresar numeroref." });
+    // }
+    // if (!descripcion) {
+    //     errors.push({ text: "debe ingresar descripcion" });
+    // }
+    // if (!fecha) {
+    //     errors.push({ text: "debe ingresar fecha." });
+    // }
+    // if (!iva) {
+    //     errors.push({ text: "debe ingresar iva" });
+    // }
+
+    if(arrayArticulosReporte.length == 0){
+        errors.push({ text: "debe ingresar al menos un articulo" });
     }
-    if (!descripcion) {
-        errors.push({ text: "debe ingresar descripcion" });
+
+    const remitoChecked = !!checkRemito; // true si checkRemito tiene un valor, false si no
+    const reciboChecked = !!checkRecibo;
+
+    if (!remitoChecked && !reciboChecked) {
+        errors.push({ text: "debe ingresar si es REMITO y/o RECIBO" });
+
     }
-    if (!fecha) {
-        errors.push({ text: "debe ingresar fecha." });
-    }
-    if (!iva) {
-        errors.push({ text: "debe ingresar iva" });
-    }
-    if (errors.length > 0)
-        return res.render("recibos/new-recibo", {
+
+    if (errors.length > 0) {
+        const clientesList = await Cliente.find().sort({ _id: "desc" }).lean();
+        const articulosList = await Articulo.find().sort({ _id: "desc" }).lean();
+
+        // en return envio los errores y los datos para que los campos no se borren
+        return res.render("recibos/altaRecibosPage", {
             errors,
-            numeroref,
-            descripcion,
-            fecha,
-            iva
+            clientesList,
+            articulosList,
+            numeroref, descripcion, fecha, iva, cliente
         });
+    }
 
     const newRecibo = new Recibo({ numeroref, descripcion, fecha, iva });
 
     // GUARDO EL RECIBO
     await newRecibo.save();
 
-
     // OBTENGO DATOS DEL CLIENTE
 
     const datosCliente = await Cliente.findOne({ _id: cliente }).lean();
-
-
-    const remitoChecked = !!checkRemito; // true si checkRemito tiene un valor, false si no
-    const reciboChecked = !!checkRecibo;
-
-    // console.log("remitoChecked");
-    // console.log(remitoChecked);
-    // console.log("reciboChecked");
-    // console.log(reciboChecked);
 
     // GENERO EL PDF
 
@@ -63,25 +71,29 @@ export const createNewRecibo = async (req, res) => {
         "Content-Disposition": `attachment; filename=documentos-tecnoclean-${numeroref}.pdf`,
     });
 
-    if(remitoChecked && reciboChecked){
+    if (remitoChecked && reciboChecked) {
         // GENERAR AMBOS
         buildPDFCompleto(newRecibo, datosCliente, arrayArticulosReporte, (data) => stream.write(data), () => stream.end());
         console.log("AMBOS");
-    }else if( remitoChecked && !reciboChecked){
+    } else if (remitoChecked && !reciboChecked) {
         // GENERAR REMITOS
         buildPDFRemito(newRecibo, datosCliente, arrayArticulosReporte, (data) => stream.write(data), () => stream.end());
         console.log("REMITOS");
-    }else if(reciboChecked && !remitoChecked){
+    } else if (reciboChecked && !remitoChecked) {
         // GENERAR RECIBOS
         buildPDFRecibo(newRecibo, datosCliente, arrayArticulosReporte, (data) => stream.write(data), () => stream.end());
         console.log("RECIBOS");
-    }else{
+    } else {
         console.log("NINGUNO");
-        res.render("recibos/altaRecibosPage");
+        errors.push({ text: "debe ingresar si es REMITO y/o RECIBO" });
+        console.log("errors");
+        console.log(errors);
+
+
     }
 
     // FIN PDF
-
+    console.log("llega aca? wtf");
 
     //   req.flash("success_msg", "Recibo Added Successfully");
 

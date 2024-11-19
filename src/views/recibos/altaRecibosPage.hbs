@@ -103,6 +103,11 @@
         {{!-- <a class="btn btn-warning" href="/recibos/descargarpdfrecibos">GENERAR</a> --}}
     </div>
 
+    <div class="container d-flex">
+        {{> messages }}
+        {{> errors }}
+    </div>
+    
     <div class="pb-50">
         <div class="container">
             <div class="mx-auto">
@@ -118,21 +123,23 @@
                                 <div class="row mb-3">
                                     <div class="col-md-3">
                                         <label for="numeroref" style="color: #000;">Número de Referencia</label>
-                                        <input type="text" class="form-control" name="numeroref"
+                                        <input type="text" class="form-control" name="numeroref" value="{{numeroref}}"
                                             placeholder="Número de Referencia" required autofocus />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="descripcion" style="color: #000;">Descripción</label>
                                         <input type="text" class="form-control" name="descripcion"
-                                            placeholder="Descripción" required />
+                                            value="{{descripcion}}" placeholder="Descripción" required />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="fecha" style="color: #000;">Fecha</label>
-                                        <input type="date" class="form-control" name="fecha" required />
+                                        <input type="date" class="form-control" name="fecha" required
+                                            value="{{fecha}}" />
                                     </div>
                                     <div class="col-md-3">
                                         <label for="iva" style="color: #000;">IVA</label>
-                                        <input type="text" class="form-control" name="iva" placeholder="IVA" required />
+                                        <input type="text" class="form-control" name="iva" placeholder="IVA" required
+                                            value="{{iva}}" />
                                     </div>
                                 </div>
                                 <div class="row mt-4">
